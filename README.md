@@ -1,2 +1,2 @@
 # random-color-picker-
-Its my project at GitHub.
+Its my first project at GitHub.
