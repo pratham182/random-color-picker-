@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="main.css">
+<script type="text/javascript" src="main.js"></script>
+	<!--<style type="text/css">
+		#display{
+    border: 2px solid transparent;
+    width: 175px;
+    height: 45px;
+    margin-top: 0%;
+    margin-left: 0%;
+    text-align: center;
+    font-size: 34px;		}
+		#button{
+		display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 16%;
+    width: 161px;
+    margin-top: 20px;
+    background: brown;
+    color: white;
+		}
+		#copy{
+			position: relative;
+    top: 15%;
+    left: 194px;
+   visibility: hidden;
+   cursor: pointer;
+}
+
+	.header{
+   
+    border: 2px solid lightgrey ;
+    width: 30%;
+    height: 78px;
+    margin-left: 36%;
+    margin-top: 22%;
+		}-->
+	</style>
+</head>
+<body id="body" onload="first()">
+	<div class="header">
+	<button id="copy"  >Copy</button>
+<div id="display"></div>
+<button id="button">Genrate rondom value </button>
+</div>
+</body>
+
+</html>
+<script type="text/javascript">
+	let copy=document.getElementById('copy');
+function first(){
+	let ra=Math.floor(Math.random()*256);
+		let ba=Math.floor(Math.random()*256);
+		let ga=Math.floor(Math.random()*256);
+	document.body.style.backgroundColor="rgb("+ra+","+ba+","+ga+")";
+}
+	
+	let button=document.getElementById('button');
+	button.addEventListener('click',col);
+		// body...
+
+
+	function col() {
+		let ra=Math.floor(Math.random()*256);
+		let ba=Math.floor(Math.random()*256);
+		let ga=Math.floor(Math.random()*256);
+
+		// body...
+		//let total="rgb(+ra+,+ba+,+ga+)";
+		let total="rgb("+ra+","+ba+","+ga+")";
+		document.getElementById('body').style.backgroundColor=total;
+		copy.style.visibility="visible";
+console.log(total);
+		display(ra,ba,ga);
+	}
+	
+	function display(ra,ba,ga){
+		//let ra=Math.floor(Math.random()*256);
+		//let ba=Math.floor(Math.random()*256);
+		//let ga=Math.floor(Math.random()*256);
+
+
+let dis=document.getElementById('display').innerHTML="rgb("+ra+","+ba+","+ga+")";
+
+
+}
+copy.addEventListener('click',textcopy);
+function textcopy(){
+	let input = document.createElement("input");
+let dislay=document.getElementById('display').innerHTML;
+	console.log(dislay);
+ input.style.display="none";
+  input.style["pointer-events"] = "none";
+  document.body.appendChild(input);
+  input.value = dislay;
+  input.focus();
+  input.select();
+  input.setSelectionRange(0,9999);
+  document.execCommand('copy');
+let copy=document.getElementById('copy');
+copy.innerHTML="Copied";
+copy.style.fontSize="10px";
+let s=setTimeout(copied,2000);
+	
+	
+
+
+}
+function copied(){
+	let copy=document.getElementById('copy');
+	copy.innerHTML="Copy";
+copy.style.fontSize="13px";
+}
+
+
+</script>
